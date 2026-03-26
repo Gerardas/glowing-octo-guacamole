@@ -1,1 +1,523 @@
-<div class="time"> Puslapis sugeneruotas: <span id="time"></span> </div>
+<!DOCTYPE html>
+<html lang="lt">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nauja svetainė Domenai.lt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;1,300;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    html,
+    body,
+    div,
+    span,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    address,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    q,
+    small,
+    strong,
+    sub,
+    sup,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td {
+        border: 0;
+        margin: 0;
+        padding: 0
+    }
+
+    article,
+    aside,
+    figure,
+    figure img,
+    figcaption,
+    hgroup,
+    footer,
+    header,
+    nav,
+    section,
+    video,
+    object {
+        display: block
+    }
+
+    a img {
+        border: 0
+    }
+
+    figure {
+        position: relative
+    }
+
+    figure img {
+        width: 100%
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        font-weight: 300;
+    }
+
+    html {
+        font-size: 15px;
+        scroll-behavior: smooth;
+        height: 100%;
+    }
+
+    img,
+    object,
+    embed {
+        max-width: 100%;
+    }
+
+    img {
+        height: auto;
+    }
+
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        color: #414042;
+        min-width: 350px;
+        overflow: auto;
+        background: linear-gradient(169.79deg, rgba(0, 71, 175, 0.07) -45%, rgba(255, 129, 44, 0.07) 91.16%);
+        padding-bottom: 3rem;
+    }
+
+    h1 {
+        margin-bottom: .6em;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: .6em;
+    }
+
+    p {
+        margin-bottom: 1.25rem;
+    }
+
+
+    .container {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    section {
+        padding: 3em 0;
+    }
+
+    .hero_container {
+        padding-top: 70px;
+    }
+
+    .hero_40_60 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .hero_40_60 .hero_description {
+        flex: 0 0 40%;
+        align-self: normal;
+        word-break: break-word;
+    }
+
+    .hero_40_60 .hero_description h1 {
+        font-size: 2.513rem;
+        line-height: 3rem;
+        font-weight: 600;
+    }
+
+    .hero_40_60 .hero_image {
+        flex: 0 0 60%;
+    }
+
+    .hero_image {
+        text-align: center;
+        align-self: center;
+    }
+
+    .hero_2_row {
+        margin-top: 6rem;
+    }
+
+    @media (max-width: 767px) {
+        .hero_40_60 {
+            flex-direction: column;
+        }
+    }
+
+    /* Domain search home page */
+
+
+    .domain-search-home-page h2 {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .content-box {
+        background: #FFFFFF;
+        border: 1px solid #FFFFFF;
+        box-shadow: 0px 0px 15px 4px rgba(103, 103, 103, 0.1);
+        border-radius: 6px;
+        padding: 1.25rem;
+    }
+
+    /* Domain search form */
+
+    .domain-search-form {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .domain-search-form .form-container {
+        padding: 1.5rem 0;
+    }
+
+    .domain-search-form .form-container .input-with-button .submit-button .ds_button_text,
+    .domain-search-form .form-container .input-with-button .submit-button .ds_button_icon i {
+        color: white;
+        font-weight: 500;
+        font-size: 1.25rem;
+    }
+
+    .domain-search-form .form-container .input-with-button .submit-button .ds_button_icon {
+        display: none;
+    }
+
+    .domain-search-form .form-container .input-with-button .submit-button {
+        background: #FF812C;
+        width: 200px;
+        top: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 10px;
+    }
+
+    .domain-search-form .form-container .submit-button:hover {
+        background-color: #ff9f5f;
+        border: 1px solid #ff9f5f;
+        color: #FFFFFF !important;
+    }
+
+    @media only screen and (max-width: 800px) {
+        .domain-search-form {
+            width: 80%;
+        }
+
+        .domain-search-form .form-container .input-with-button .submit-button {
+            width: fit-content;
+            padding: 0 1rem;
+        }
+
+        .domain-search-form .form-container .input-with-button .submit-button .ds_button_icon {
+            display: block;
+        }
+
+        .domain-search-form .form-container .input-with-button .submit-button .ds_button_text {
+            display: none;
+        }
+    }
+
+    /* form container */
+
+    input {
+        font-family: 'Poppins', sans-serif;
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+        background-color: #ffffff;
+    }
+
+    .form-container input[type="text"] {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: 1px solid #BABABA;
+        border-radius: 10px;
+    }
+
+    .form-container label {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #fff;
+        padding: 0 4px;
+        transition: all 0.3s;
+        pointer-events: none;
+        opacity: 0;
+        color: #fff;
+    }
+
+    .form-container input[type="text"]:focus-visible {
+        outline: 1px solid #5E6278;
+    }
+
+    .form-container .form-field {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .form-container .input-with-button {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-container .input-with-button input:not(:placeholder-shown)+button+label,
+    .form-container .input-with-button input:focus+button+label {
+        top: 0;
+        font-size: 0.85rem;
+        opacity: 1;
+        color: #414042;
+    }
+
+    .form-container .input-with-button .submit-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-left: 1px solid rgba(179, 179, 179, 0.5);
+    }
+
+    .form-container .input-with-button .submit-button i {
+        font-size: 1rem;
+        color: #919191;
+    }
+
+    /* Grid */
+    .service_list_grid_3 {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 2rem;
+    }
+
+    .service_list_grid_2 {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 767px) {
+
+        .service_list_grid_3,
+        .service_list_grid_2 {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Btn */
+
+    .btn {
+        display: inline-block !important;
+        text-align: center !important;
+        cursor: pointer;
+        min-width: 100px !important;
+        height: auto !important;
+        padding: 5px 10px;
+        font-size: .85rem;
+        line-height: 150% !important;
+        font-style: normal;
+        font-weight: normal;
+        border-radius: 6px !important;
+        -webkit-box-sizing: content-box !important;
+        -moz-box-sizing: content-box !important;
+        box-sizing: content-box !important;
+    }
+
+    a.btn {
+        text-decoration: none !important;
+    }
+
+    .btn_large {
+        font-size: 1.125rem;
+        padding: 10px 15px !important;
+    }
+
+    .btn_orange_border {
+        border: 1px solid #FF812C;
+        background-color: #FFF;
+        color: #414042 !important;
+    }
+
+    .btn_orange_border:hover {
+        border: 1px solid #414042;
+        background-color: #414042;
+        color: #FFF !important;
+    }
+
+    .btn_green_white {
+        border: 1px solid #00B76C;
+        background-color: #FFF;
+        color: #00B76C !important;
+    }
+
+    .btn_green_white:hover {
+        border: 1px solid #00B76C;
+        background-color: #FFF;
+        -webkit-box-shadow: 0 0 7px .5px rgba(0, 0, 0, .25);
+        box-shadow: 0 0 7px .5px rgba(0, 0, 0, .25);
+    }
+
+    /* Header */
+
+    header {
+        width: 100%;
+        padding: 12px 0;
+        text-align: center;
+        background-color: white;
+    }
+</style>
+
+<body>
+    <header>
+        <a href="https://www.domenai.lt?utm_source=domain_welcome&utm_medium=referral">
+            <img src="https://domenai.lt/img/logo/domenai-logo.png" width="132" height="42" alt="Domenai, hostingas, el. paštas">
+        </a>
+      <div class="time"> Puslapis sugeneruotas: <span id="time"></span> </div>
+    </header>
+    <div class="container hero_container">
+        <div class="hero_40_60">
+            <div class="hero_description">
+                <h1>
+                    git.gerardas.lt serveris paruoštas
+                </h1>
+                <p>
+                    Dabar laikas sukurti naują svetainę arba įkelti jau sukurtos svetainės failus.
+                </p>
+                <p>
+                    <a href="https://paskyra.domenai.lt?utm_source=domain_welcome&utm_medium=referral"
+                        class="btn btn_green_white btn_large">Prisijungti prie serverio</a>
+                </p>
+            </div>
+            <div class="hero_image">
+                <a href="https://www.domenai.lt?utm_source=domain_welcome&utm_medium=referral">
+                    <picture>
+                        <source
+                            srcset="https://paskyra.domenai.lt/img/onboarding/hosting/hostingo_serveris_paruostas.webp"
+                            type="image/webp">
+                        <source
+                            srcset="https://paskyra.domenai.lt/img/onboarding/hosting/hostingo_serveris_paruostas.png"
+                            type="image/png">
+                        <img src="https://paskyra.domenai.lt/img/onboarding/hosting/hostingo_serveris_paruostas.png" alt="Domeno registravimas sėkmingas" style="max-height: 350px;">
+                    </picture>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="hero_2_row container">
+        <div class="service_list_grid_3">
+            <div class="content-box">
+                <h2>Sukurkite svetainę su DI</h2>
+                <p>
+                    Sukurkite svetainę su dirbtinio intelekto įrankiu per kelias minutes.
+                    <br />
+        Verslui, e. parduotuvei. Greitai. Paprastai. Internete.
+                </p>
+                <a href="https://www.domenai.lt/pagalba/lt/articles/11680022-kaip-sukurti-wordpress-svetaine-naudojant-dirbtini-intelekta?utm_source=domain_welcome&utm_medium=referral"
+                    class="btn btn_orange_border">Sukurti svetainę</a>
+            </div>
+            <div class="content-box">
+                <h2>Perkelkite svetainę</h2>
+                <p>
+                    Perkelkite savo svetainę į Domenai.lt nemokamai.
+                </p>
+                <a href="https://www.domenai.lt/pagalba/lt/articles/11485800-kaip-perkelti-svetaine?utm_source=domain_welcome&utm_medium=referral"
+                    class="btn btn_orange_border">Perkelti svetainę</a>
+            </div>
+            <div class="content-box">
+                <h2>Sukurkite el. pašto dėžutę</h2>
+                <p>
+                    El. paštas su jūsų verslo vardu @git.gerardas.lt padidins žinomumą, suteiks daugiau pasitikėjimo ir
+                    profesionalumo.
+                </p>
+                <a href="https://www.domenai.lt/pagalba/lt/articles/6692989-kaip-sukurti-el-pasto-dezute?utm_source=domain_welcome&utm_medium=referral"
+                    class="btn btn_orange_border">Sukurti el. pašto dėžutę</a>
+            </div>
+        </div>
+        <div class="service_list_grid_2">
+            <div class="content-box">
+                <h2>Perkelkite el. paštą iš kito paslaugos teikėjo</h2>
+                <p>
+                    Turite el. paštą pas kitą paslaugos teikėją? Perkelkite jį į Domenai.lt nemokamai.
+                </p>
+                <a href="https://www.domenai.lt/pagalba/lt/articles/9886429-kaip-perkelti-el-pasta-is-kito-paslaugos-teikejo?utm_source=domain_welcome&utm_medium=referral"
+                    class="btn btn_orange_border">Perkelti el. paštą</a>
+            </div>
+            <div class="content-box">
+                <h2>Atraskite daugiau domenų</h2>
+                <form id="searchForm" action="https://www.domenai.lt/domenu-tikrinimas" method="get">
+                    <div class="domain-search-form">
+                        <div class="form-container">
+                            <div class="form-field">
+                                <div class="input-with-button">
+                                    <input type="text" id="domain" name="domain" placeholder="domeno-pavadinimas.lt" required>
+                                    <input type="hidden" name="utm_source" value="domain_welcome">
+                                    <input type="hidden" name="utm_medium" value="referral">
+                                    <button type="submit" class="submit-button">
+                  <span class="ds_button_text">Tikrinti</span>
+                  <span class="ds_button_icon"><i class="fa fa-search"></i></span>
+                </button>
+                                    <label for="domain">Domeno paieška</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
